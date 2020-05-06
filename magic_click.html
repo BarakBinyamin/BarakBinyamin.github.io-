@@ -1,0 +1,34 @@
+
+<html>
+<meta charset="UTF-8">
+<head>
+<title>Curser_magic</title>
+</head>
+<body>
+
+<script>
+/*function select_download(){
+var upvote_position = ('#answer-12878316').position();
+('body').mousemove(function (event) {
+    (this).css({
+        position: 'relative',
+        left: (event.pageX - upvote_position.left - 22) + 'px',
+        top: (event.pageY - upvote_position.top - 35) + 'px'
+    });        
+});
+}*/
+function reload_content(){
+//document.getElementById('download').click();
+var a = $("<a>")
+    .attr("href", "http://i.stack.imgur.com/L8rHf.png")
+    .attr("download", "img.png")
+    .appendTo("body");
+a[0].click();
+
+}
+</script> 
+<a id='download' href="/" download="LED2.png" rel="nofollow">Download</a>
+<script>setTimeout(function(){ reload_content();setTimeout(function(){ reload_content(); }, 500) }, 500)
+</script>
+</body>
+</html>
