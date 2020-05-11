@@ -1,5 +1,0 @@
-sudo apt uninstall php7.0
-
-/etc/apache2
-
--i input.jpeg -vf scale=1024:682 output.jpeg
