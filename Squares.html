@@ -102,13 +102,13 @@ function MoveDown() {
 //attaching events to keys
 document.onkeydown = function(e) {
   console.log("keyDown");
-  if (e.which == 65) {
+  if (e.which == 65 || e.which == 37 ) {
     MoveLeft();
-  } else if (e.which == 87) {
+  } else if (e.which == 87 || e.which == 38) {
     MoveUp();
-  } else if (e.which == 83) {
+  } else if (e.which == 83 || e.which == 40 ) {
     MoveDown();
-  } else if (e.which == 68) {
+  } else if (e.which == 68 || e.which == 39) {
     MoveRight();
   } else if (e.which == 32) {
     alert("space bar was pressed");
