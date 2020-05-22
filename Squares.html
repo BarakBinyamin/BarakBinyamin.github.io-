@@ -1,0 +1,138 @@
+
+<html>
+<meta charset="UTF-8">
+<head>
+<title>Key Bindings</title>
+</head>
+<body>
+
+<style>
+.square {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+}
+
+/*collision animation*/
+@keyframes down {
+
+}
+
+</style>
+<div class="square" id="elem" style="background-color: red; text-align:center;" onclick="changeBlock(id)"></div>
+<div class="square" id="elem2" style="background-color: blue;" onclick="changeBlock(id)"> </div>
+
+<script>
+//speed of the block
+DX=50
+DY=50
+
+//block in focus, which block is moving
+block="elem"
+
+//initialize each blocks coordinate attributes
+document.getElementById("elem").setAttribute("x", 0);
+document.getElementById("elem2").setAttribute("x", 0);
+document.getElementById("elem").setAttribute("y", 0);
+document.getElementById("elem2").setAttribute("y", 0);
+
+//change block in focus
+function changeBlock(id){
+	block=id;
+}
+
+function MoveLeft() {
+  checkCollision();
+  var elem = document.getElementById(block);
+  var X = elem.getAttribute("x");
+  var dx = 0;
+  for (var dx = 0; dx <= DX ; dx++) {
+      elem.setAttribute("x", X--);
+      elem.style.left = X + 'px'; 
+	}
+/*move with timing, not functional
+  setTimeout(function(){
+	dx++
+	if (dx<DX){
+	elem.setAttribute("x", X--);
+        elem.style.left = X + 'px'; 
+        MoveLeft();	
+	}
+  }, 1000)*/
+ };
+
+
+function MoveRight() {
+  checkCollision()
+  var elem = document.getElementById(block);  
+  var X = elem.getAttribute("x"); 
+  for (var dx = 0; dx <= DX ; dx++) {
+      elem.setAttribute("x", X++);
+      elem.style.left = X + 'px';
+	}
+}
+
+function MoveUp() {
+  var elem = document.getElementById(block);  
+  /* setting animation for collision, different for collision from each direction
+  
+  if(checkCollision()){
+  elem.setAttribute("animation-duration:", "1s");
+  }
+
+  */
+  checkCollision()
+  var Y = elem.getAttribute("y");  
+  for (var dy = 0; dy <= DY ; dy++) {
+      elem.setAttribute("y", Y--);  
+      elem.style.top = Y + 'px';
+  	}
+}
+
+function MoveDown() {
+  checkCollision()
+  var elem = document.getElementById(block);   
+  var Y = elem.getAttribute("y");  
+  for (var dy = 0; dy <= DY ; dy++) {
+      elem.setAttribute("y", Y++);  
+      elem.style.top = Y + 'px';
+  	}
+}
+
+//attaching events to keys
+document.onkeydown = function(e) {
+  console.log("keyDown");
+  if (e.which == 65) {
+    MoveLeft();
+  } else if (e.which == 87) {
+    MoveUp();
+  } else if (e.which == 83) {
+    MoveDown();
+  } else if (e.which == 68) {
+    MoveRight();
+  } else if (e.which == 32) {
+    alert("space bar was pressed");
+  }
+};
+
+document.onkeyup = function(e) {  
+  checkCollision();
+};
+
+//collision testing ... not fully funtional yet 
+function checkCollision(){
+  x1 = document.getElementById("elem").getAttribute("x");
+  x2 = document.getElementById("elem2").getAttribute("x");
+  y1 = document.getElementById("elem").getAttribute("y");
+  y2 = document.getElementById("elem2").getAttribute("y");
+  //if x1 collides with blue square on any side
+  //check    left	right		top  	     bottom			random guess
+  if (((x1>=x2-100 && x1<=x2+100)&&(y1>=y2-100 && y1<=y2+100))||((x2>=x1-100 && x2<=x1+100)&&(y2>=y1-100 && y2<=y1+100))){
+     console.log("collision");
+     return true;
+}
+};
+</script> 
+
+</body>
+</html>
