@@ -21,6 +21,7 @@
 </style>
 <h1 style=" text-align:center;">Click a square to control it, move with AWSD or arrow keys</h1>
 <button onclick="gravity(block)">Add gravity to the selected square</button> 
+<button onclick="removeGravity(block)">Remove gravity from the selected square</button> 
 <div class="square" id="elem" style="background-color: red; text-align:center;" onclick="changeBlock(id)"></div>
 <div class="square" id="elem2" style="background-color: blue;" onclick="changeBlock(id)"> </div>
 <div id="FLOOR" style="position: absolute; top: 465px; width:100%; height:1px;background-color: green;"></div>
@@ -29,7 +30,7 @@
 
 <script>
 //Physics
-G=9.8
+G=9.8 //  px/sec/sec
 Floor=350
 //speed of the block
 DX=50
@@ -103,21 +104,17 @@ function MoveDown() {
 }
 
 function gravity(elemID){
-/*
-type testing
-
-element = document.getElementById("elem");
+/*element = document.getElementById("elem");
 T=element.getAttribute("T");
 element.setAttribute("T", (parseFloat('.02') + parseFloat(T)));
-console.log(T);
-
-*/
+console.log(T);*/
 console.log(Boolean(document.getElementById(elemID).getAttribute("Gravity")));
 if(!Boolean(document.getElementById(elemID).getAttribute("Gravity"))){
-document.getElementById(elemID).setAttribute("Gravity", true);
-INTERVAL = setInterval(function() {
+document.getElementById(elemID).setAttribute("Gravity", "true");
+var INTERVAL = setInterval(function() {
        element = document.getElementById(elemID);
-       if (parseFloat(element.style.top)>=Floor){element.setAttribute("Gravity", ""); element.setAttribute("T", 0); clearInterval(INTERVAL);}
+       if (parseFloat(element.style.top)>=Floor){element.setAttribute("T", 0);} 
+       if (!Boolean(element.getAttribute("Gravity"))){clearInterval(INTERVAL);}
        if (element.getAttribute("y")<=Floor){
        T=element.getAttribute("T");
 
@@ -137,6 +134,11 @@ INTERVAL = setInterval(function() {
 }
 }, 20);
 }
+}
+function removeGravity(elemID){
+element = document.getElementById(elemID);
+element.setAttribute("Gravity", "");
+element.setAttribute("T", 0);
 }
 
 function setFloor(){
@@ -159,7 +161,10 @@ document.onkeydown = function(e) {
   } else if (e.which == 68 || e.which == 39) {
     MoveRight();
   } else if (e.which == 32) {
-    alert("space bar was pressed");
+    //alert("space bar was pressed");
+    if(Boolean(document.getElementById(block).getAttribute("Gravity"))){
+        MoveUp();
+	document.getElementById(block).setAttribute("T", (1/2) );}
   }
     else if (e.keyCode === 13) {
     e.preventDefault();
