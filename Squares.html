@@ -19,24 +19,35 @@
 }
 
 </style>
-	<h1 style=" text-align:center;">Click a square to control it, move with AWSD or arrow keys</h1>
+<h1 style=" text-align:center;">Click a square to control it, move with AWSD or arrow keys</h1>
+<button onclick="gravity(block)">Add gravity to the selected square</button> 
 <div class="square" id="elem" style="background-color: red; text-align:center;" onclick="changeBlock(id)"></div>
 <div class="square" id="elem2" style="background-color: blue;" onclick="changeBlock(id)"> </div>
+<div id="FLOOR" style="position: absolute; top: 465px; width:100%; height:1px;background-color: green;"></div>
+<input id="myInput" value="435">px
+
 
 <script>
+//Physics
+G=9.8
+Floor=350
 //speed of the block
 DX=50
 DY=50
 
+
 //block in focus, which block is moving
 block="elem"
 
-//initialize each blocks coordinate attributes
+//initialize each blocks coordinate and time attributes
 document.getElementById("elem").setAttribute("x", 0);
 document.getElementById("elem2").setAttribute("x", 0);
 document.getElementById("elem").setAttribute("y", 0);
 document.getElementById("elem2").setAttribute("y", 0);
-
+document.getElementById("elem").setAttribute("T", 0);
+document.getElementById("elem2").setAttribute("T", 0);
+document.getElementById("elem").setAttribute("Gravity", "");
+document.getElementById("elem2").setAttribute("Gravity", "");
 //change block in focus
 function changeBlock(id){
 	block=id;
@@ -51,15 +62,6 @@ function MoveLeft() {
       elem.setAttribute("x", X--);
       elem.style.left = X + 'px'; 
 	}
-/*move with timing, not functional
-  setTimeout(function(){
-	dx++
-	if (dx<DX){
-	elem.setAttribute("x", X--);
-        elem.style.left = X + 'px'; 
-        MoveLeft();	
-	}
-  }, 1000)*/
  };
 
 
@@ -100,6 +102,51 @@ function MoveDown() {
   	}
 }
 
+function gravity(elemID){
+/*
+type testing
+
+element = document.getElementById("elem");
+T=element.getAttribute("T");
+element.setAttribute("T", (parseFloat('.02') + parseFloat(T)));
+console.log(T);
+
+*/
+console.log(Boolean(document.getElementById(elemID).getAttribute("Gravity")));
+if(!Boolean(document.getElementById(elemID).getAttribute("Gravity"))){
+document.getElementById(elemID).setAttribute("Gravity", true);
+INTERVAL = setInterval(function() {
+       element = document.getElementById(elemID);
+       if (parseFloat(element.style.top)>=Floor){element.setAttribute("Gravity", ""); element.setAttribute("T", 0); clearInterval(INTERVAL);}
+       if (element.getAttribute("y")<=Floor){
+       T=element.getAttribute("T");
+
+       console.log("TIME = " + T);
+
+       dy = ((1/2)*G*(Math.pow(T, 2)));
+
+       y = parseFloat(element.getAttribute("y")) + parseFloat(dy);
+
+       element.setAttribute("T", (parseFloat('.02') + parseFloat(T)));
+
+       element.style.top=y+"px";
+
+       console.log("TOP = " + element.style.top);
+
+       element.setAttribute("y", y);
+}
+}, 20);
+}
+}
+
+function setFloor(){
+var input = document.getElementById("myInput").value;
+var FLOOR = document.getElementById("FLOOR");
+Floor = parseInt(input);
+FLOOR.style.top = (Floor+115) + "px"
+}
+
+
 //attaching events to keys
 document.onkeydown = function(e) {
   console.log("keyDown");
@@ -113,6 +160,10 @@ document.onkeydown = function(e) {
     MoveRight();
   } else if (e.which == 32) {
     alert("space bar was pressed");
+  }
+    else if (e.keyCode === 13) {
+    e.preventDefault();
+    setFloor();
   }
 };
 
