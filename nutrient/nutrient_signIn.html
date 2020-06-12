@@ -69,7 +69,7 @@ function Sign_in(){
       	 //childData will be the actual contents of the child
       	  	var childData = childSnapshot.val();
 		if (childData.password == password){ console.log("signed in ");
-		url='nutrient_main.html/'
+		url='nutrient_main.html'
  window.location.href = url+"?user="+key; return 0; }
 			}
   		});
