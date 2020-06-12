@@ -13,6 +13,10 @@ text-align: center;
 </style>
 
 
+
+1
+
+<!DOCTYPE html>
 <!-- The core Firebase JS SDK is always required and must be listed first -->
 <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
@@ -49,7 +53,7 @@ text-align: center;
   <input type="text" id="password" name="lname"><br><br>
   <div style="color: red;" id="message"></div>
   <input type="submit" value="Sign in" onclick="Sign_in()">
-  <input type="submit" value="Sign up" onclick="window.location.href = 'https://BarakBinyamin.github.io/nutrient/nutrient_signUp.html' ">
+  <input type="submit" value="Sign up" onclick="window.location.href = 'nutrient_signUp.html' ">
 </div>
 <script>
 
@@ -70,7 +74,7 @@ function Sign_in(){
       	 //childData will be the actual contents of the child
       	  	var childData = childSnapshot.val();
 		if (childData.password == password){ console.log("signed in ");
-		url='https://BarakBinyamin.github.io/nutrient/nutrient_main.html/'
+		url='nutrient_main.html/'
  window.location.href = url+"?user="+key; return 0; }
 			}
   		});
