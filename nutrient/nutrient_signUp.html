@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>  
+  <meta charset="utf-8">
+  <title>Nutrient sign-up</title>
+</head>  
+
+<body>
+<style>
+body{
+text-align: center;
+}
+</style>
+
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-database.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<script>
+  //https://firebase.google.com/docs/reference/js/firebase.database.DataSnapshot#exists
+
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBUZgDs8g-1KlEQvaPffgxUb81EI62kUtM",
+    authDomain: "blog-9deee.firebaseapp.com",
+    databaseURL: "https://blog-9deee.firebaseio.com",
+    storageBucket: "blog-9deee.appspot.com"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  var database = firebase.database();
+
+</script>
+
+
+</br></br>
+<h1>Sign-Up</h1>
+<div id="sign-in">
+  <label>Username:</label>
+  <input type="text" id="name" name="fname"><br><br>
+  <label>Password:</label>
+  <input type="text" id="password" name="lname"><br><br>
+  <div style="color: red;" id="message"></div>
+  <input type="submit" value="Sign in" onclick="window.location.href = 'file:///home/rock/casey%20projects/nutrient/nutrient_signIn.html'">
+  <input type="submit" value="Sign up" onclick="Sign_up()">
+</div>
+<script>
+
+found=false;
+function Sign_up(){
+	found = false;
+	document.getElementById("message").innerHTML = "";
+
+	name = document.getElementById("name").value;
+	password = document.getElementById("password").value;
+
+	//
+	var query = firebase.database().ref("User").orderByKey();
+	query.once("value")
+  	.then(function(snapshot) {
+    	snapshot.forEach(function(childSnapshot) {
+      	var key = childSnapshot.key; // key will change every iteration
+	var childData = childSnapshot.val();
+	//
+	if (childData.user == name){	document.getElementById("message").innerHTML = "sorry, but that Username is already in use</br></br>"; found=true;}
+	
+	setTimeout(function(){ check(), 1000});
+
+		});
+	});
+	
+}
+
+
+function check(){
+if(!found){database.ref("/User").push({
+	     user:name,
+             password:password
+	});
+	document.getElementById("message").innerHTML = "<div style='color: blue;'>\r\n Account created! Now you can Sign-in </br>\r\n</br>\r\n</div>\r\n";
+	}
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+Based on a 2000 calorie diet for a female 19-30
+
+https://health.gov/our-work/food-nutrition/2015-2020-dietary-guidelines/guidelines/appendix-7/#table-a7-1
+
+__Nutrients__
+protein 46 g
+Carbohydrate 130 g
+Dietary fiber 28 g
+Total fat 20-35 g
+Linoleic acid 12 g
+Linolenic acid 1.1 g
+
+__Minerals__
+Calcium 1000 mg
+Iron 18 mg
+Magnesium 310 mg
+Phosphorus 700 mg
+Potassium 4700 mg
+Sodium 2300 mg
+Zinc 8 mg
+Copper 900 mcg
+Manganese 1.8 mg
+Selenium 55 mcg
+
+__Vitamins__
+Vitamin A 700 mcg
+Vitamin E 15 mg
+Vitamin D 600 IU
+Vitamin C 75 mg
+Thiamin 1.1 mg
+Riboflavin 1.1 mg
+Niacin 8 mg
+Vitamin B6 0.6 mg
+Vitamin B12 1.2 mcg
+Choline 250 mg
+Vitamin K 55 mcg
+Folate 200 mcg

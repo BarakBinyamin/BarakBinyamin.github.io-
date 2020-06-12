@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>  
+  <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
+  <title>Nutrient Settings</title>
+</head>  
+
+<body>
+<style>
+body{
+text-align: center;
+}
+</style>
+
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-database.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<script>
+  //https://firebase.google.com/docs/reference/js/firebase.database.DataSnapshot#exists
+
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBUZgDs8g-1KlEQvaPffgxUb81EI62kUtM",
+    authDomain: "blog-9deee.firebaseapp.com",
+    databaseURL: "https://blog-9deee.firebaseio.com",
+    storageBucket: "blog-9deee.appspot.com"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  var database = firebase.database();
+
+</script>
+
+
+</br></br>
+<h1>Hey there <span id="name"></span>, Create your Diet</h1>
+<h3>PlaceHolder Based on a 2000 calorie diet for a female 19-30</h3>
+<div id="settings">
+  <label>Protein:</label>
+  <input type="number" min="0" max="200" id="protein" placeholder="46">g<br><br>
+  <label>Carbohydrate:</label>
+  <input type="number" min="0" max="400" id="Carbohydrate" placeholder="130">g<br><br>
+  
+  
+
+
+  <input type="submit" value="Submit" onclick="sure?">
+</div>
+
+<script>
+//run on page load
+//setTimeout(function(){ GetAccount(),500});
+//setTimeout(function(){ GetAccount();setTimeout(function(){ GetAccountDetails(); }, 500) }, 500)
+//
+GetAccount();
+GetAccountDetails();
+
+Account = " "
+name = " "
+function GetAccount(){
+var url = window.location.href;
+Account = "User/" + url.split("user=")[1];
+console.log(Account);
+}
+
+
+function GetAccountDetails(){
+   //console.log(Account)
+   firebase.database().ref(Account).on('value', function(snap){
+   	snap.forEach(function(childNodes){
+		name = childNodes.val().user;
+		console.log(name);
+	});		
+   });
+	document.getElementById("name").innerHTML = name;
+}
+
+
+
+</script>
+</body>
+</html>
