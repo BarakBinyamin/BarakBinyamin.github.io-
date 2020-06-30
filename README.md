@@ -7,3 +7,7 @@
 [Auto download](https://barakbinyamin.github.io/magic_click.html)  
 [Web-dev physics](https://barakbinyamin.github.io/Squares.html)  
 [Nutrient](https://barakbinyamin.github.io/nutrient/nutrient_signUp.html)  
+
+## Scripts
+
+[GetMusic](https://raw.githubusercontent.com/BarakBinyamin/BarakBinyamin.github.io/master/Scripts/getmusic.sh)  
