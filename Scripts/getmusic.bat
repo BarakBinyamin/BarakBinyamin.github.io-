@@ -9,11 +9,12 @@
 :: Advanced System Settings > Advanced tab > Environment Variables > select Path in the second table > edit > new > paste the path to the bin folder C:\Program Files\ffmpeg\
 :: save, now you can use ffmpeg for other programs too... https://video.stackexchange.com/questions/20495/how-do-i-set-up-and-use-ffmpeg-in-windows
 
+::EASY Install
+:: Step 1: search cmd > right click > run as admin
+:: Step 2: type 'wget 
 
 :: USAGE
 :: In CMD C:\getmusic.bat YOUTUBELINKS.txt
-
-set /A ffmpeg=FFMPEGFILELOCATION
 
 @echo off
 echo "download beginning..."  
