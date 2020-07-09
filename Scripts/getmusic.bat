@@ -12,6 +12,8 @@
 ::EASY Install
 :: Step 1: search cmd > right click > run as admin
 :: Step 2: paste: powershell -Command "New-Item -ItemType directory -Path 'C:\Users\%username%\Desktop\Getmusic'"
+:: Step 3: paste: cd C:\Users\%username%\Desktop\Getmusic
+:: step 4: paste: 
 
 :: USAGE
 :: In CMD C:\getmusic.bat YOUTUBELINKS.txt
