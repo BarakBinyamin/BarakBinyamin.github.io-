@@ -11,7 +11,7 @@
 
 ::EASY Install
 :: Step 1: search cmd > right click > run as admin
-:: Step 2: type 'wget 
+:: Step 2: paste: powershell -Command "
 
 :: USAGE
 :: In CMD C:\getmusic.bat YOUTUBELINKS.txt
