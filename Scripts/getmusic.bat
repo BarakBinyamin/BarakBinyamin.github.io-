@@ -20,10 +20,24 @@
 
 :: USAGE
 :: Step 1: click on the Getmusic folder, edit the YOUTUBELINKS.txt
-:: Step 3: type CMD in the search bar of the get music folder and press Enter
-:: Step 3: paste: getmusic.bat YOUTUBELINKS.txt
+:: Step 2: run the program
 
 @echo off
+set /p input="Did you edit the music links?(y/n)"
+pause
+If /I "%input%" == "y" goto yes
+goto no
+
+:yes
 echo "download beginning..."  
 for /f "delims=" %%i in (%1) do youtube-dl --extract-audio --audio-format mp3 %%i  
 echo "download complete"  
+echo "press any key to exit..."
+pause
+exit
+
+:no
+echo "please edit the YOUTUBELINKS.txt file"
+echo "press any key to exit..."
+pause
+exit
