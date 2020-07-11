@@ -1,6 +1,7 @@
 :: This script uses youtube_dl and FFmpeg to download batches of music from youtube
 
 :: DEPENDECIES
+::python and pip
 :: youtube-dl
 
 :: FFmpeg, converts to mp3, --> follow Easy Install steps
