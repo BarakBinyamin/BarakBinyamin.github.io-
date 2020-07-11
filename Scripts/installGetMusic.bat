@@ -11,5 +11,11 @@ powershell -Command "Invoke-WebRequest https://ffmpeg.zeranoe.com/builds/win64/s
 powershell -Command "New-Item -ItemType directory Path 'C:\Program Files\ffmpeg'"
 powershell "Expand-Archive -Force 'C:\Users\%username%\Desktop\getmusic\ffmpeg.zip' 'C:\Program Files\ffmpeg'"
 
+:Downloading program
+powershell -Command "(New-Object Net.WebClient).DownloadFile('https://barakbinyamin.github.io/Scripts/installGetMusic.bat', 'getmusic.bat')"
+powershell -Command "Invoke-WebRequest https://barakbinyamin.github.io/Scripts/installGetMusic.bat -OutFile getmucic.bat"
+powershell -Command "(New-Object Net.WebClient).DownloadFile('https://barakbinyamin.github.io/Scripts/YOUTUBELINKS.txt', 'YOUTUBELINKS.txt')"
+powershell -Command "Invoke-WebRequest https://barakbinyamin.github.io/Scripts/YOUTUBELINKS.txt -OutFile YOUTUBELINKS.txt"
+
 ::move stuff directly into ffmpeg
 ::pathman ffmpeg
