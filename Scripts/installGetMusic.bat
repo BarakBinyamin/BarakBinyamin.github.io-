@@ -1,5 +1,4 @@
 :: Install dependecies
-@echo off
 Echo "please wait until the CMD window disappears"
 pause
 Echo ""
