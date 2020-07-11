@@ -30,7 +30,7 @@ goto no
 
 :yes
 echo "download beginning..."  
-for /f "delims=" %%i in (%1) do youtube-dl --extract-audio --audio-format mp3 %%i  
+for /f "delims=" %%i in (YOUTUBELINKS.txt) do youtube-dl --extract-audio --audio-format mp3 %%i  
 echo "download complete"  
 echo "press any key to exit..."
 pause
