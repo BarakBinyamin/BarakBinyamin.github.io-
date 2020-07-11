@@ -22,8 +22,10 @@
 :: Step 1: click on the Getmusic folder, edit the YOUTUBELINKS.txt
 :: Step 2: run the program
 
+::setx path "%path%;'C:\Program Files\ffmpeg\bin'" 
 @echo off
 set /p input="Did you edit the music links?(y/n)"
+
 pause
 If /I "%input%" == "y" goto yes
 goto no
