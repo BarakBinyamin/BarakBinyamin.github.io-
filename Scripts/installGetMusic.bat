@@ -17,7 +17,7 @@ powershell -Command "Invoke-WebRequest https://barakbinyamin.github.io/Scripts/i
 powershell -Command "(New-Object Net.WebClient).DownloadFile('https://barakbinyamin.github.io/Scripts/YOUTUBELINKS.txt', 'YOUTUBELINKS.txt')"  
 powershell -Command "Invoke-WebRequest https://barakbinyamin.github.io/Scripts/YOUTUBELINKS.txt -OutFile YOUTUBELINKS.txt"  
 
-pathman /as 'C:\Program Files\ffmpeg\bin'  
+ pathed /append 'C:\Program Files\ffmpeg\bin' /user   
 
 echo download complete, press any key to exit  
 pause  
