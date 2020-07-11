@@ -2,11 +2,11 @@
 Echo please wait until the CMD window disappears  
 pause  
 pip install youtube-dl  
-powershell -Command "New-Item -ItemType directory Path 'C:\Users\%username%\Desktop\getmusic'"  
+powershell -Command "New-Item -ItemType directory -Path 'C:\Users\%username%\Desktop\getmusic'"  
 cd C:\Users\%username%\Desktop\getmusic  
 powershell -Command "(New-Object Net.WebClient).DownloadFile('https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-20200628-4cfcfb3-win64-static.zip', 'ffmpeg.zip')"  
 powershell -Command "Invoke-WebRequest https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-20200628-4cfcfb3-win64-static.zip -OutFile ffmpeg.zip"  
-powershell -Command "New-Item -ItemType directory Path 'C:\Program Files\ffmpeg'"  
+powershell -Command "New-Item -ItemType directory -Path 'C:\Program Files\ffmpeg'"  
 powershell "Expand-Archive -Force 'C:\Users\%username%\Desktop\getmusic\ffmpeg.zip' 'C:\Program Files\ffmpeg'"  
 cd "C:\Program Files\ffmpeg\ffmpeg-2020200628-4cfcfb3-win64-static"  
 xcopy /e /v 'C:\Program Files\ffmpeg\ffmpeg-2020200628-4cfcfb3-win64-static' 'C:\Program Files\ffmpeg'  
