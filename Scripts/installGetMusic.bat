@@ -1,7 +1,6 @@
 :: Install dependecies  
-Echo "please wait until the CMD window disappears"  
+Echo please wait until the CMD window disappears  
 pause  
-Echo ""  
 pip install youtube-dl  
 powershell -Command "New-Item -ItemType directory Path 'C:\Users\%username%\Desktop\getmusic'"  
 cd C:\Users\%username%\Desktop\getmusic  
@@ -20,6 +19,6 @@ powershell -Command "Invoke-WebRequest https://barakbinyamin.github.io/Scripts/Y
 
 pathman /as 'C:\Program Files\ffmpeg\bin'  
 
-echo "download complete, press any key to exit"  
+echo download complete, press any key to exit  
 pause  
 exit  
