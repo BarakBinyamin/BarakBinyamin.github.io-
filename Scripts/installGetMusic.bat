@@ -39,8 +39,8 @@ XCOPY  \E  "C:\Program Files\ffmpeg\ffmpeg-20200628-4cfcfb3-win64-static" "C:\Us
 
 ::Download getmusic script
 echo downloading Getmusic...
-powershell -Command "(New-Object Net.WebClient).DownloadFile('https://barakbinyamin.github.io/Scripts/installGetMusic.bat', 'getmusic.bat')"   
-powershell -Command "Invoke-WebRequest https://barakbinyamin.github.io/Scripts/installGetMusic.bat -OutFile getmucic.bat"  
+powershell -Command "(New-Object Net.WebClient).DownloadFile('https://barakbinyamin.github.io/Scripts/getmusic.bat', 'getmusic.bat')"   
+powershell -Command "Invoke-WebRequest https://barakbinyamin.github.io/Scripts/getmusic.bat -OutFile getmusic.bat"  
 powershell -Command "(New-Object Net.WebClient).DownloadFile('https://barakbinyamin.github.io/Scripts/YOUTUBELINKS.txt', 'YOUTUBELINKS.txt')"  
 powershell -Command "Invoke-WebRequest https://barakbinyamin.github.io/Scripts/YOUTUBELINKS.txt -OutFile YOUTUBELINKS.txt"  
 
