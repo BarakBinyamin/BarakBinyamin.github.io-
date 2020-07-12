@@ -1,6 +1,7 @@
 :: Install dependecies  
-Echo please wait until the CMD window disappears  
-pause  
+Echo please wait until the CMD window disappears 
+Echo press any key to continue with the install...
+pause > NUL
   
 powershell -Command "New-Item -ItemType directory -Path 'C:\Users\%username%\Desktop\getmusic'"  
 cd C:\Users\%username%\Desktop\getmusic  
@@ -38,5 +39,5 @@ powershell -Command "Invoke-WebRequest https://barakbinyamin.github.io/Scripts/Y
 
 
 echo download complete, press any key to exit  
-pause  
+pause  > NUL
 exit  
