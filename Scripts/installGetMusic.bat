@@ -1,4 +1,7 @@
 :: Install dependecies  
+@Echo off
+color a
+title GetMusic Install
 Echo please wait until the CMD window disappears 
 Echo press any key to continue with the install...
 pause > NUL
