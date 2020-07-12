@@ -7,7 +7,7 @@ cd C:\Users\%username%\Desktop\getmusic
 
 ::get python and pip
 ::powershell -Command "(New-Object Net.WebClient).DownloadFile('https://www.python.org/ftp/python/3.8.3/python-3.8.3-amd64.exe', 'python.exe')"   
-::powershell -Command "Invoke-WebRequest https://www.python.org/ftp/python/3.8.3/python-3.8.3-amd64.exe -OutFile python.exe" 
+::powershell -Command "Invoke-WebRequest https://yt-dl.org/downloads/2020.06.16.1/youtube-dl.exe -OutFile python.exe" 
 ::C:\Users\%username%\Desktop\getmusic\python.exe /quiet InstallAllUsers=1 PrependPath=1 Include_test=0
 ::powershell -Command "(New-Object Net.WebClient).DownloadFile('https://bootstrap.pypa.io/get-pip.py', 'get-pip.py')"   
 ::powershell -Command "Invoke-WebRequest https://bootstrap.pypa.io/get-pip.py -OutFile get-pip.py" 
