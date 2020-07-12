@@ -33,7 +33,7 @@ powershell -Command "(New-Object Net.WebClient).DownloadFile('https://ffmpeg.zer
 powershell -Command "Invoke-WebRequest https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-20200628-4cfcfb3-win64-static.zip -OutFile ffmpeg.zip"  
 powershell -Command "New-Item -ItemType directory -Path 'C:\Program Files\ffmpeg'"  
 powershell "Expand-Archive -Force 'C:\Users\%username%\Desktop\getmusic\ffmpeg.zip' 'C:\Program Files\ffmpeg'" 
-XCOPY  \E  "C:\Program Files\ffmpeg\ffmpeg-20200628-4cfcfb3-win64-static" "C:\Users\%username%\Desktop\getmusic"
+XCOPY  \E  "C:\Program Files\ffmpeg\ffmpeg-20200628-4cfcfb3-win64-static\bin" "C:\Users\%username%\Desktop\getmusic"
 
  
 
