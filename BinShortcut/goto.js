@@ -1,6 +1,6 @@
 function goto(){
  url = "https://clbin.com/" + document.getElementById("code").value;
- window.open(url)
+ window.open(url, '_blank')
 }
 
 //attaching events to keys
