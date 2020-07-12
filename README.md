@@ -7,7 +7,7 @@
 [Auto download](https://barakbinyamin.github.io/magic_click.html)  
 [Web-dev physics](https://barakbinyamin.github.io/Squares.html)  
 [Nutrient](https://barakbinyamin.github.io/nutrient/nutrient_signUp.html)  
-
+[Bin shortcut](https://barakbinyamin.github.io/BinShortcut/BinShortcut.html)  
 ## Scripts
 
 ... 
