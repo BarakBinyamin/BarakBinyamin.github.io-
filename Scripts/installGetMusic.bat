@@ -2,7 +2,13 @@
 @Echo off
 color a
 title GetMusic Install
-Echo please wait until the CMD window disappears 
+Echo Welcome to the getmusic install
+Echo This program installs:
+Echo youtube-dl  --> https://ytdl-org.github.io/youtube-dl/index.html
+Echo visual C++  --> https://www.microsoft.com/en-US/download/details.aspx?id=5555
+Echo ffmpeg      --> https://ffmpeg.org/
+Echo Make sure to run this program as an administrator
+Echo
 Echo press any key to continue with the install...
 pause > NUL
   
