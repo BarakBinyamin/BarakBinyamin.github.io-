@@ -1,5 +1,6 @@
 function goto(){
-window.location.href = "https://clbin.com/" + document.getElementById("code").value;
+ url = "https://clbin.com/" + document.getElementById("code").value;
+ window.open(url)
 }
 
 //attaching events to keys
