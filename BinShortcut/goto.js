@@ -1,7 +1,7 @@
 url = "https://clbin.com/"
 function goto(){
  url = "https://clbin.com/" + document.getElementById("code").value;
- window.open(url, '_blank')
+ //window.open(url, '_blank')
  window.setTimeout(click(), 500)
 }
 
