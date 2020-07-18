@@ -8,6 +8,7 @@
 [Web-dev physics](https://barakbinyamin.github.io/Squares.html)  
 [Nutrient](https://barakbinyamin.github.io/nutrient/nutrient_signUp.html)  
 [Bin shortcut](https://barakbinyamin.github.io/BinShortcut/BinShortcut.html)  
+[Touchtype](https://barakbinyamin.github.io/touchtype/touchtype.html)  
 ## Scripts
 
 ... 
