@@ -16,12 +16,19 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
+   .g-signin2{
+  width: 100%;
+}
+
+.g-signin2 > div{
+  margin: 0 auto;
+}
 </style>
 <body>
   </br></br>
-<div style="text-align: center; position: center;">
-<div style="text-align: center" class="g-signin2" data-onsuccess="onSignIn"></div>
-</div>
+  <div class="g-signin2" data-onsuccess="onSignIn" 
+      -theme="light" data-width="300" data-height="50"
+      data-longtitle="true">sign in with google</div>
 </body>
 <script>
 function onSignIn(googleUser) {
