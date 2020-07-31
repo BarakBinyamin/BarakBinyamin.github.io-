@@ -14,17 +14,18 @@ function AddScore(){
         HighScore = HighScore + 1;
     }
 
-    document.getElementById("score").innerHTML = "Score: " + Score + " " + "High Score: " + HighScore;
+    document.getElementById("score").innerHTML = "Score: " + Score + " " + username + "'s "+ "High Score: " + HighScore;
 }
 
 function ZeroScore(){
     Score = 0;
-    document.getElementById("score").innerHTML = "Score: " + Score + " " + "High Score: " + HighScore;
+    document.getElementById("score").innerHTML = "Score: " + Score + " " + username + "'s "+ "High Score: " + HighScore;
 }
 
 document.onkeypress = function(evt) {
     evt = evt || window.event;
     var charCode = evt.which || evt.keyCode;
+    if (charCode == 13){set_username();}
     var charStr = String.fromCharCode(charCode);
     if (charStr.toUpperCase() == GlobalLetter){
         FlashBackground("green");
@@ -57,6 +58,7 @@ function ChangeTheme(){
 var timer = false;
 var timeCounter = 0;
 var intervalVar;
+var username;
 
 function startTimer(){
 
@@ -104,3 +106,8 @@ function Timer_(time){
         clearInterval(intervalVar);
         Timer_(time);}
 }
+
+function set_username(){
+	username = document.getElementById("texbox").value;
+        document.getElementById("texbox").remove();
+    }
