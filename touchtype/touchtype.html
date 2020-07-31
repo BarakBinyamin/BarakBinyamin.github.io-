@@ -5,14 +5,19 @@
       <link rel="stylesheet" type="text/css" href="darktheme.css">
       <title>Touch type lessons</title>
    </head>
-   <body class="default">
-         <div id="display" style="font-size: 3000%;"></div>
-         <div id="score" >
+   <body class="night">
+	 <div id="score" style="font-size: 200%;" >
             Score: 0 High Score: 0
          </div>
+         <div id="count"></div>
+         <div style="font-size: 200%;">
+      <input type="submit" onClick="Quit_()" value="Quit">
+      <input type="submit" onClick="Timer_(60)" value="1 minute">
+      <input type="submit" onClick="Timer_(120)" value="2 minutes">
+      <input type="submit" onClick="Timer_(180)" value="3 minutes">
+      </div>
+         <div id="display" style="font-size: 3000%;"></div>
          <button type="button" onclick="ChangeTheme()">Change theme</button> 
    </body>
    <script src="touchtype.js"></script> 
 </html>
-
-

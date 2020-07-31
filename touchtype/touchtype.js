@@ -53,3 +53,55 @@ function ChangeTheme(){
 if ( document.body.className== "default" ){ document.body.className= "night"; }
 else{ document.body.className =  "default" }
 }
+
+
+         var timer = false;
+         var timeCounter = 0;
+         var intervalVar;
+         
+         function startTimer(){
+         
+         console.log("new");
+         intervalVar = setInterval(function() {
+         
+         var hours = Math.floor(timeCounter / 60 / 60);
+         var minutes = Math.floor(timeCounter / 60) - (hours * 60);
+         var seconds = timeCounter % 60;
+         
+         
+          timeCounter--;
+          if (timeCounter >= 0) {
+            span = document.getElementById("count");
+            span.innerHTML = "Time left: " + minutes + ":"
+            if (seconds<10){ span.innerHTML += "0" + seconds;}else{span.innerHTML +=seconds;}
+          }
+         
+          if (timeCounter == -1) {
+            clearInterval(intervalVar);
+            timer = false;
+            span = document.getElementById("count");
+            span.innerHTML = "Time left: " + minutes + ":" + "0" + seconds;
+            }
+         
+         }, 1000);
+         
+         }
+         
+            function Quit_(){
+            if (timer) {
+            timer = false;
+            clearInterval(intervalVar);}
+            }
+
+	    function Timer_(time){
+	    if (timer==false) {
+            timer = true;
+            timeCounter = time;
+            startTimer();
+         	}
+
+            else {
+            timer = false;
+            clearInterval(intervalVar);
+	    Timer_(time);}
+            }
