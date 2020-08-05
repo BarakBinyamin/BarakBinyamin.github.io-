@@ -19,6 +19,11 @@
   padding: 2px 16px;
 }
 
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
 </style>
 <!-- end CSS for a card in html-->
 
@@ -54,14 +59,21 @@ var firebaseConfig = {
 function clearData(){
 database.ref("User").set({
          });
+	setTimeout(function(){ pushNothing(), 1000});
 }
 
-//reloads the content of the page, this is done by looping over all of the elements with the keys "name" & 
-//"content" within the folder "User" 
+function pushNothing(){
+database.ref("User").push({
+             score: " ",
+	     name: " ",
+         });
+
+}
+
 function reload_content(){
 var today = new Date();
 var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-var page = "";
+var page = "<table style='width:100%'>";
 
 /**these two lines of javascript are key to iterating through the database**/
 firebase.database().ref("User").on('value', function(snap){
@@ -70,11 +82,13 @@ firebase.database().ref("User").on('value', function(snap){
       //This loop iterates over children of user_id
       //childNodes.key is key of the children of userid such as (20170710)
       name = childNodes.val().name;
-      content = childNodes.val().content;
+      score = childNodes.val().score;
 
       //add the data into your preset html wrapper, be sure to escape special characters
-      page += String(name) + " " + ": " + String(content) + " " + String(date) + "</br>"
-
+      if (name!=" "){page += "<tr>\r\n  "+
+  "<th>" + String(name) + "<\/th>\r\n " + 
+  "<th>" + String(score) + "<\/th> \r\n ";}
+   
 
   });		//don't forget these!! 
 });
@@ -82,27 +96,41 @@ firebase.database().ref("User").on('value', function(snap){
 document.getElementById("data").innerHTML = page  //set the element with the refernce "page" with the html that was just made
 }
 
+var intervalvar;
+function reload_content_timer(){intervalVar = setInterval(function() {reload_content();}, 5000);}
+
 //add a grouping of data to the database
 function push(){
-database.ref("User").push({
-             content: document.getElementById("textfeild").value,
-	     name: document.getElementById("nameTextbox").value
+    var query = firebase.database().ref("User").orderByKey();
+	query.once("value")
+  	.then(function(snapshot) {
+    	snapshot.forEach(function(childSnapshot) {
+      	var key = childSnapshot.key; // key will change every iteration
+	var childData = childSnapshot.val();
+	var path = "/User/" + key;
+	if (childData.name == Player){	database.ref(path).set({
+	     name: Player,
+             score: document.getElementById("scoreTextbox").value,
          });
+}
+
+		});
+	});
 
 }
 
 //clear the textboxes
 function clear_textbox(){
-document.getElementById("textfeild").value = ""
-document.getElementById("nameTextbox").value = ""
+document.getElementById("message").innerHTML = "";
 }
 
 
-found=false;
+var Player = "";
+var found=false;
 function Sign_up(){
 	found = false;
     
-	name = document.getElementById("name").value;
+	if (Player==""){Player = document.getElementById("nameTextbox").value;}
 	//
 	var query = firebase.database().ref("User").orderByKey();
 	query.once("value")
@@ -111,7 +139,7 @@ function Sign_up(){
       	var key = childSnapshot.key; // key will change every iteration
 	var childData = childSnapshot.val();
 	//
-	if (childData.user == name){	document.getElementById("message").innerHTML = "sorry, but that Username is already in use</br></br>"; found=true;}
+	if (childData.name == Player){	document.getElementById("message").innerHTML = "sorry, but that Username is already in use</br></br>"; found=true;}
 	
 	setTimeout(function(){ check(), 1000});
 
@@ -123,12 +151,16 @@ function Sign_up(){
 
 function check(){
 if(!found){database.ref("/User").push({
-	     user:name,
-             password:password
+	     name: Player,
+	     score: "0",
 	});
-	document.getElementById("message").innerHTML = "<div style='color: blue;'>\r\n Account created! Now you can Sign-in </br>\r\n</br>\r\n</div>\r\n";
+	var textbox = document.getElementById("nameTextbox");
+	if (textbox!=null){document.getElementById("nameTextbox").remove();document.getElementById("submitName").remove();}
+        found = true;
+        console.log(found);
 	}
 }
+
 </script>
 
 
@@ -140,20 +172,23 @@ Let's test out the database! <br/>
 <br/><br/><br/>
 
 
-<p id= "data">loading...</p>	<!--dynamic html goes here-->
+<div id= "data">loading...</div>	<!--dynamic html goes here-->
+<div id="message"></div>
 
-<!--static html-->
-<div id="link">
 <input type="text" id="nameTextbox" placeholder = "name" style="font-size: 15px;"><br/>
-<textarea name="paragraph_text" cols="40" placeholder = "Comments" rows="5" id="textfeild" style="background: rgba(204, 204, 204, .1); color:#000000; border:rgba(204, 204, 204, .8); font-size: 15px;  "></textarea>
-<button onclick = "push(), reload_content(), clear_textbox()" style="font-size: 20px;">Submit</button>
-<button onclick = "reload_content(), goto('#link') "style="font-size: 20px;" >get_all</button>
-<button onclick = "clearData(), reload_content(), clear_textbox(); goto('#begining')" style="font-size: 20px;">Clear</button>
+<input type="text" id="scoreTextbox" placeholder="score" style="font-size: 15px;"><br/>
+
+<button id="submitName" onclick = "Sign_up(), reload_content(), clear_textbox()" style="font-size: 20px;">Submit name</button>
+
+<button onclick = "push(), reload_content(), clear_textbox()" style="font-size: 20px;">Submit score</button>
+<button onclick = "reload_content() "style="font-size: 20px;" >get_all</button>
+<button onclick = "reload_content_timer() "style="font-size: 20px;" >get_all on timer</button>
+<button onclick = "clearData(), reload_content(), clear_textbox();" style="font-size: 20px;">Clear</button>
 </div>
 <!--Clear the textboxes on loading the page -->
 <script> 
 clear_textbox();
-setTimeout(function(){ reload_content();setTimeout(function(){ reload_content(); }, 500) }, 500)
+setTimeout(function(){ reload_content();setTimeout(function(){ reload_content(); }, 1000) }, 500)
 </script>
 
 </div>
