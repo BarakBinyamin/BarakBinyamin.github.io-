@@ -1,23 +1,28 @@
 <!DOCTYPE html>
 <html>
-   <head>
-      <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="stylesheet" type="text/css" href="darktheme.css">
-      <title>Touch type lessons</title>
-   </head>
-   <body class="night">
-	 <div id="score" style="font-size: 200%;" >
-            Score: 0 High Score: 0
-         </div>
-         <div id="count"></div>
-         <div style="font-size: 200%;">
-      <input type="submit" onClick="Quit_()" value="Quit">
-      <input type="submit" onClick="Timer_(60)" value="1 minute">
-      <input type="submit" onClick="Timer_(120)" value="2 minutes">
-      <input type="submit" onClick="Timer_(180)" value="3 minutes">
-      </div>
-         <div id="display" style="font-size: 3000%;"></div>
-         <button type="button" onclick="ChangeTheme()">Change theme</button> 
-   </body>
-   <script src="touchtype.js"></script> 
+    <head>
+        <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="darktheme.css">
+        <title>Touch type lessons</title>
+    </head>
+    <body class="night">
+        <div id="center-wrapper">
+            <div id="score" class="big-text">Score: 0 High Score: 5</div>
+            <div id="count"></div>
+            <div class="big-text">
+                <input type="submit" onclick="Quit_()" value="Quit">
+                <input type="submit" onclick="Timer_(60)" value="1 minute">
+                <input type="submit" onclick="Timer_(120)" value="2 minutes">
+                <input type="submit" onclick="Timer_(180)" value="3 minutes">
+            </div>
+            <div id="letter">F</div>
+            <button type="button" onclick="ChangeTheme()">Change theme</button>
+        </div>
+        <div id="leaderboard">
+            <p>FLOATING</p>
+            <p>float</p>
+        </div>
+        <script src="touchtype.js"></script> 
+    </body>
 </html>
+
