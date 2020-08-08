@@ -143,4 +143,5 @@ function check() {
 
 window.addEventListener('DOMContentLoaded', (event) => {
     reload_content_timer();
+    openNav();
 });
