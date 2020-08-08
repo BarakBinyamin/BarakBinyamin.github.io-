@@ -138,6 +138,7 @@ function check() {
         }
         found = true;
         console.log(found);
+        closeNav();
     }
 }
 
