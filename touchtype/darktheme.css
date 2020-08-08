@@ -1,5 +1,35 @@
 .default   { background: #fff; color: black; }
 .night { background: #333; color: rgb(57, 255, 20);  }
 
-body { text-align: center; }
+body { 
+    margin: 0;
+}
+
+#center-wrapper {
+    text-align: center;  
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    position: absolute;
+}
+
+.big-text {
+    text-size: 2000%;
+}
+    
+#leaderboard {
+    float: right;
+    margin: 0 10% 0 0;
+    display: block;
+}
+
+#letter {
+    font-size: 3000%;
+    display: block;
+    right: 50%;
+}
+
+#count {
+    align-content: center;
+}
 
