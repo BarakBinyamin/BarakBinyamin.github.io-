@@ -115,13 +115,11 @@ function Sign_up() {
                     found = true;
                 }
 
-                setTimeout(function () {
-                    check(), 1000
-                });
-
             });
         });
-
+     setTimeout(function () {
+                    check(), 1000
+                });
 }
 
 
