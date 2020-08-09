@@ -131,12 +131,7 @@ function check() {
             name: Player,
             score: "0",
         });
-        var textbox = document.getElementById("nameTextbox");
-        if (textbox != null) {
-            document.getElementById("nameTextbox").remove();
-            document.getElementById("submitName").remove();
-        }
-        found = true;
+        //found = true;
         console.log(found);
         closeNav();
     }
