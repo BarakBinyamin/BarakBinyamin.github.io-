@@ -98,10 +98,10 @@ function clear_textbox() {
 
 
 var Player = "";
-var found = false;
+var found;
 
 function Sign_up() {
-    found = false;
+    car found = false;
 
     if (Player == "") {
         Player = document.getElementById("nameTextbox").value;
