@@ -27,10 +27,10 @@ function pushNothing() {
         score: " ",
         name: " ",
     });
-    database.ref("User").push({
-        score: "Score",
-        name: "Name",
-    });
+    //database.ref("User").push({
+      //  score: "Score",
+       // name: "Name",
+   // });
 }
 /////////////////////////////////////////////////////
 
