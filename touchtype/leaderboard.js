@@ -59,7 +59,7 @@ function reload_content() {
         }); 
     });
 
-    document.getElementById("leaderboard").innerHTML = leaderboard
+    document.getElementById("leaderboard").innerHTML = leaderboard;
 }
 
 var intervalvar;
