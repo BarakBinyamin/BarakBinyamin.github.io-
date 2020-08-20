@@ -1,4 +1,4 @@
-#This scripts adds an " OR" on every line 
+#This scripts adds an " OR" at the end of every line in a file
 #This script was intended to make it easey to make a filter for a large amount of emails at a time
 #Example: For a class list
 
