@@ -12,4 +12,4 @@
 [Touchtype](https://barakbinyamin.github.io/touchtype/touchtype.html)  
 ## Scripts
 
-... 
+(EmailListFilter.sh)[https://barakbinyamin.github.io/Scripts/EmailListFilter.sh]
