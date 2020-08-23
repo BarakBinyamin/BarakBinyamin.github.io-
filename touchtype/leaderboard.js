@@ -101,7 +101,7 @@ var Player = "";
 var found;
 
 function Sign_up() {
-    car found = false;
+    var found = false;
 
     if (Player == "") {
         Player = document.getElementById("nameTextbox").value;
