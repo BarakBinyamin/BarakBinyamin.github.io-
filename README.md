@@ -12,4 +12,4 @@
 [Touchtype](https://barakbinyamin.github.io/touchtype/touchtype.html)  
 ## Scripts
 
-EmailListFilter.sh [View](https://raw.githubusercontent.com/BarakBinyamin/BarakBinyamin.github.io/master/Scripts/EmailListFilter.sh) or [Download](https://barakbinyamin.github.io/Scripts/EmailListFilter.sh)
+[View EmailListFilter.sh](https://raw.githubusercontent.com/BarakBinyamin/BarakBinyamin.github.io/master/Scripts/EmailListFilter.sh) or [Download EmailListFilter.sh](https://barakbinyamin.github.io/Scripts/EmailListFilter.sh)
