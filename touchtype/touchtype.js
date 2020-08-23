@@ -5,7 +5,7 @@ refreshLetter();
 
 function refreshLetter(){
     GlobalLetter = String.fromCharCode(65+Math.floor(Math.random() * 26));
-    document.getElementById("display").innerHTML = GlobalLetter;
+    document.getElementById("letter").innerHTML = GlobalLetter;
 }
 
 function AddScore(){
