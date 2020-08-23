@@ -10,7 +10,7 @@ var firebaseConfig = {
     measurementId: "G-0NN3FSVQ90"
 };
 
-// Initialize Firebase, make a reference variable 
+// Initialize Firebase, make a reference variable
 firebase.initializeApp(firebaseConfig);
 var database = firebase.database();
 
@@ -56,7 +56,7 @@ function reload_content() {
             }
 
 
-        }); 
+        });
     });
 
     document.getElementById("leaderboard").innerHTML = leaderboard;
@@ -101,7 +101,7 @@ var Player = "";
 var found;
 
 function Sign_up() {
-    car found = false;
+    var found = false;
 
     if (Player == "") {
         Player = document.getElementById("nameTextbox").value;
