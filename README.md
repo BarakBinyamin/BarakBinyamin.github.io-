@@ -10,7 +10,6 @@
 [FunStuff](https://barakbinyamin.github.io/funstuff/funstuff.html)  
 [Bin shortcut](https://barakbinyamin.github.io/BinShortcut/BinShortcut.html)  
 [Touchtype](https://barakbinyamin.github.io/touchtype/touchtype.html)  
-
 ## Scripts
 
 [View EmailListFilter.sh](https://raw.githubusercontent.com/BarakBinyamin/BarakBinyamin.github.io/master/Scripts/EmailListFilter.sh) or [Download EmailListFilter.sh](https://barakbinyamin.github.io/Scripts/EmailListFilter.sh)
