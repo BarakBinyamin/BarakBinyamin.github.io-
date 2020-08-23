@@ -1,6 +1,7 @@
 GlobalLetter = "A";
 HighScore = 0;
 Score = 0;
+background="#333";
 refreshLetter();
 
 function refreshLetter(){
@@ -40,17 +41,16 @@ document.onkeypress = function(evt) {
 };
 
 function FlashBackground(color){
-    var backgroundColor = document.body.style.background;
     document.body.style.background = color;
     setTimeout(function(){ document.body.style.transition = "background 500ms"; }, 50);
-    setTimeout(function(){ document.body.style.background = backgroundColor; }, 100);
+    setTimeout(function(){ document.body.style.background = background; }, 100);
     setTimeout(function(){ document.body.style.transition = ""; }, 200);
 }
 
 
 function ChangeTheme(){
-    if ( document.body.className== "default" ){ document.body.className= "night"; }
-    else{ document.body.className =  "default" }
+    if ( document.body.className== "default" ){ document.body.className= "night"; backround="#333" }
+    else{ document.body.className =  "default"; background="#fff"}
 }
 
 
