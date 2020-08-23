@@ -3,26 +3,11 @@
     <head>
         <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="darktheme.css">
-        <link rel="stylesheet" type="text/css" href="overlay.css">
-        <!-- The core Firebase JS SDK is always required and must be listed first -->
-      <!-- The core Firebase JS SDK is always required and must be listed first -->
-      <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
-      <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-auth.js"></script>
-      <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-database.js"></script>
-      <script src="leaderboard.js"></script>
-
         <title>Touch type lessons</title>
     </head>
     <body class="night">
-        <div id="myNav" class="overlay">
-  <div class="overlay-content">
-        <input type="text" class="classy" id="nameTextbox" placeholder="username..">
-        <button id="submitName" onclick = "Sign_up(), reload_content()" style="font-size: 20px;">Submit name</button>
-      <div id="message"></div>
-  </div>
-</div>
         <div id="center-wrapper">
-            <div id="score" class="big-text">Score: 0 High Score: 0</div>
+            <div id="score" class="big-text">Score: 0 High Score: 5</div>
             <div id="count"></div>
             <div class="big-text">
                 <input type="submit" onclick="Quit_()" value="Quit">
@@ -34,6 +19,8 @@
             <button type="button" onclick="ChangeTheme()">Change theme</button>
         </div>
         <div id="leaderboard">
+            <p>FLOATING</p>
+            <p>float</p>
         </div>
         <script src="touchtype.js"></script> 
     </body>
