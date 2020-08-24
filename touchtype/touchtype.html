@@ -15,8 +15,9 @@
     <body class="night">
         <div id="myNav" class="overlay">
   <div class="overlay-content">
-        <input type="text" class="classy" id="nameTextbox" placeholder="username..">
+        <input type="text" class="classy" id="nameTextbox" maxlength="20" placeholder="username..">
         <button class="glow-on-hover" id="submitName" onclick = "Sign_up(), reload_content()" style="font-size: 20px;">Enter Username</button>
+	 <audio id="audio" src="theme.ogg"></audio>
       <div id="message"></div>
   </div>
 </div>
@@ -25,7 +26,7 @@
             <div id="count"></div>
             <div class="big-text">
                 <input type="submit" onclick="Quit_()" value="Quit">
-                <input type="submit" style="animation-delay:0.07s"" onclick="Timer_(60)" value="1 minute">
+                <input type="submit" onclick="Timer_(60)" value="1 minute">
                 <input type="submit" onclick="Timer_(120)" value="2 minutes">
                 <input type="submit" onclick="Timer_(180)" value="3 minutes">
             </div>
