@@ -1,5 +1,8 @@
 GlobalLetter = "A";
 HighScore = 0;
+HighScore1 = 0;
+HighScore2 = 0;
+HighScore3 = 0;
 Score = 0;
 background="#333";
 mode=0; //aka 1 minute, 2 minute or 3 minute
@@ -15,9 +18,9 @@ function AddScore(){
     Score= Score + 1;
     if (Score>HighScore){
         HighScore = HighScore + 1;
-	if (mode==1){}
-    	else if (mode==2){}
-    	else if (mode==3){}
+	if (mode==1 && Score>HighScore1){HighScore1 = HighScore1 +1;}
+    	else if (mode==2 && Score>HighScore2){HighScore2 = HighScore2 + 1}
+    	else if (mode==3 && Score>HighScore3){HighScore3 = HighScore3 + 1}
     }
 
     document.getElementById("score").innerHTML = "Score: " + Score + " " + "High Score: " + HighScore;
@@ -54,7 +57,7 @@ function FlashBackground(color){
 
 
 function ChangeTheme(){
-    if ( document.body.className== "default" ){ document.body.className= "night"; backround="#333" }
+    if ( document.body.className == "default" ){ document.body.className= "night"; background="#333" }
     else{ document.body.className =  "default"; background="#fff"}
 }
 
@@ -95,7 +98,7 @@ function startTimer(){
 function Quit_(){
     if (timer) {
         timer = false;
-        clearInterval(intervalVar);}
+        clearInterval(intervalVar); mode=0;}
 }
 
 function Timer_(time){
@@ -107,7 +110,7 @@ function Timer_(time){
     if (time==60){mode=1}
     else if (time==120){mode=2}
     else if (time==180){mode=3}
-    if(prev_mode != mode){HighScore=0}
+    if(prev_mode != mode){HighScore=0; Score=0;}
     }
 
     else {

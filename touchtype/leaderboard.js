@@ -29,9 +29,9 @@ function push_group() {
                     database.ref(path).set({
                         name: Player,
 			date: day,
-                        scoreOne: "0",
-	   	        scoreTwo:  "0",
-	    		scoreThree: "0",
+                        scoreOne: HighScore1,
+	   	        scoreTwo:  HighScore2,
+	    		scoreThree: HighScore3,
                     });
                 }
 
@@ -77,7 +77,7 @@ var day = Tdate.getDate();
 function reload_content_timer() {
     intervalVar = setInterval(function () {
         reload_content();
-    }, 5000);
+    }, 3000);
 }
 
 //original push location 
@@ -127,9 +127,9 @@ function check() {
         database.ref("/User").push({
             name: Player,
 	    date: day,
-	    scoreOne: "0",
-	    scoreTwo: "0",
-	    scoreThree: "0",
+	    scoreOne: HighScore1,
+	    scoreTwo: HighScore2,
+	    scoreThree: HighScore3,
         });
         closeNav();
     }
