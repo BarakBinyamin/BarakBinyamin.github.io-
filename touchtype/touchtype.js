@@ -2,6 +2,7 @@ GlobalLetter = "A";
 HighScore = 0;
 Score = 0;
 background="#333";
+mode=0; //aka 1 minute, 2 minute or 3 minute
 refreshLetter();
 
 function refreshLetter(){
@@ -9,10 +10,14 @@ function refreshLetter(){
     document.getElementById("letter").innerHTML = GlobalLetter;
 }
 
+
 function AddScore(){
     Score= Score + 1;
     if (Score>HighScore){
         HighScore = HighScore + 1;
+	if (mode==1){}
+    	else if (mode==2){}
+    	else if (mode==3){}
     }
 
     document.getElementById("score").innerHTML = "Score: " + Score + " " + "High Score: " + HighScore;
@@ -80,6 +85,7 @@ function startTimer(){
             timer = false;
             span = document.getElementById("count");
             span.innerHTML = "Time left: " + minutes + ":" + "0" + seconds;
+	    mode=0;
         }
 
     }, 1000);
@@ -97,6 +103,11 @@ function Timer_(time){
         timer = true;
         timeCounter = time;
         startTimer();
+    var prev_mode = mode;
+    if (time==60){mode=1}
+    else if (time==120){mode=2}
+    else if (time==180){mode=3}
+    if(prev_mode != mode){HighScore=0}
     }
 
     else {

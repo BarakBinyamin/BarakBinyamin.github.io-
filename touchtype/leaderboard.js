@@ -14,63 +14,10 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 var database = firebase.database();
 
-/////////////////////////////////////////////////////
-function clearData() {
-    database.ref("User").set({});
-    setTimeout(function () {
-        pushNothing(), 1000
-    });
-}
-
-function pushNothing() {
-    database.ref("User").push({
-        score: " ",
-        name: " ",
-        date: " ",
-    });
-    //database.ref("User").push({
-      //  score: "Score",
-       // name: "Name",
-   // });
-}
-/////////////////////////////////////////////////////
-
-function reload_content() {
-    var leaderboard = "<table style='width:100%'>";
-
-    /**these two lines of javascript are key to iterating through the database**/
-    firebase.database().ref("User").on('value', function (snap) {
-        snap.forEach(function (childNodes) {
-
-            //This loop iterates over children of user_id
-            //childNodes.key is key of the children of userid such as (20170710)
-            name = childNodes.val().name;
-            score = childNodes.val().score;
-
-            //add the data into your preset html wrapper, be sure to escape special characters
-            if (name != " ") {
-                leaderboard += "<tr>\r\n  " +
-                    "<th>" + String(name) + "<\/th>\r\n " +
-                    "<th>" + String(score) + "<\/th> \r\n ";
-            }
-
-
-        }); 
-    });
-
-    document.getElementById("leaderboard").innerHTML = leaderboard;
-}
-
-var intervalvar;
-
-function reload_content_timer() {
-    intervalVar = setInterval(function () {
-        reload_content();
-    }, 5000);
-}
+var Player="";
 
 //add a grouping of data to the database
-function push() {
+function push_group() {
     var query = firebase.database().ref("User").orderByKey();
     query.once("value")
         .then(function (snapshot) {
@@ -81,7 +28,10 @@ function push() {
                 if (childData.name == Player) {
                     database.ref(path).set({
                         name: Player,
-                        score: document.getElementById("scoreTextbox").value,
+			date: day,
+                        scoreOne: "0",
+	   	        scoreTwo:  "0",
+	    		scoreThree: "0",
                     });
                 }
 
@@ -89,6 +39,48 @@ function push() {
         });
 
 }
+
+
+function reload_content() {
+    var leaderboard = "<h1>LEADERBOARD</h1><table style='width:100%'>";
+    push_group();
+    /**these two lines of javascript are key to iterating through the database**/
+    firebase.database().ref("User").on('value', function (snap) {
+        snap.forEach(function (childNodes) {
+
+            //This loop iterates over children of user_id
+            //childNodes.key is key of the children of userid such as (20170710)
+            name = childNodes.val().name;
+            scoreOne = childNodes.val().scoreOne;
+	    scoreTwo = childNodes.val().scoreTwo;
+	    scoreThree = childNodes.val().scoreThree;
+            //add the data into your preset html wrapper, be sure to escape special characters
+            if (name != " ") {
+                leaderboard += "<tr>\r\n  " +
+                    "<th>" + String(name) + "<\/th>\r\n " +
+                    "<th>" + String(scoreOne) + "<\/th> \r\n " +
+		    "<th>" + String(scoreTwo) + "<\/th>\r\n " +
+		    "<th>" + String(scoreThree) + "<\/th>\r\n <\/tr>\r\n";
+            }
+
+
+        }); 
+    });
+
+    document.getElementById("leaderboard").innerHTML = leaderboard;
+}
+
+
+var intervalvar;
+var Tdate = new Date();
+var day = Tdate.getDate();
+function reload_content_timer() {
+    intervalVar = setInterval(function () {
+        reload_content();
+    }, 5000);
+}
+
+//original push location 
 
 //clear the textboxes
 function clear_textbox() {
@@ -98,8 +90,6 @@ function clear_textbox() {
 
 
 var found=false;
-var Tdate = new Date();
-var day = Tdate.getDate();
 function Sign_up() {
     found = false;
 
@@ -136,14 +126,17 @@ function check() {
     if (!found) {
         database.ref("/User").push({
             name: Player,
-            score: "0",
 	    date: day,
+	    scoreOne: "0",
+	    scoreTwo: "0",
+	    scoreThree: "0",
         });
         closeNav();
     }
           console.log(found);
 }
 
+//consider > nav.js
 function openNav() {
   document.getElementById("myNav").style.width = "100%";
 }
