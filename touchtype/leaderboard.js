@@ -26,6 +26,7 @@ function pushNothing() {
     database.ref("User").push({
         score: " ",
         name: " ",
+        date: " ",
     });
     //database.ref("User").push({
       //  score: "Score",
@@ -35,8 +36,6 @@ function pushNothing() {
 /////////////////////////////////////////////////////
 
 function reload_content() {
-    var today = new Date();
-    var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
     var leaderboard = "<table style='width:100%'>";
 
     /**these two lines of javascript are key to iterating through the database**/
@@ -97,15 +96,15 @@ function clear_textbox() {
 }
 
 
-var Player = "";
-var found;
 
+var found=false;
+var Tdate = new Date();
+var day = Tdate.getDate();
 function Sign_up() {
-    var found = false;
+    found = false;
 
-    if (Player == "") {
-        Player = document.getElementById("nameTextbox").value;
-    }
+    
+    Player = document.getElementById("nameTextbox").value;
     //
     var query = firebase.database().ref("User").orderByKey();
     query.once("value")
@@ -113,18 +112,24 @@ function Sign_up() {
             snapshot.forEach(function (childSnapshot) {
                 var key = childSnapshot.key; // key will change every iteration
                 var childData = childSnapshot.val();
-                //
+               
                 if (childData.name == Player) {
                     document.getElementById("message").innerHTML = "sorry, but that Username is already in use</br></br>";
+		setTimeout(function(){ document.getElementById("message").innerHTML = "";}, 2000);
                     found = true;
+                }
+		//if username out of date --> bump
+		if ((String(childData.date) != String(day)) && (childData.name != " ")) {
+		    path = "User/" + key
+		    console.log(path)
+                    database.ref(path).set({});
                 }
 
             });
         });
-     setTimeout(function () {
-                    check(), 1000
-                });
+     setTimeout(function(){ check()}, 1000);
 }
+
 
 
 function check() {
@@ -132,11 +137,11 @@ function check() {
         database.ref("/User").push({
             name: Player,
             score: "0",
+	    date: day,
         });
-        //found = true;
-        console.log(found);
         closeNav();
     }
+          console.log(found);
 }
 
 function openNav() {

@@ -55,10 +55,13 @@
          setTimeout(function(){ pushNothing(), 1000});
          }
          
+	var Tdate = new Date();
+	var day = Tdate.getDate();
          function pushNothing(){
          database.ref("User").push({
                     score: " ",
              name: " ",
+	     date: day,
                 });
          }
          /////////////////////////////////////////////////////
@@ -76,11 +79,12 @@
              //childNodes.key is key of the children of userid such as (20170710)
              name = childNodes.val().name;
              score = childNodes.val().score;
-         
+             date = childNodes.val().date;
              //add the data into your preset html wrapper, be sure to escape special characters
              if (name!=" "){page += "<tr>\r\n  "+
          "<th>" + String(name) + "<\/th>\r\n " + 
-         "<th>" + String(score) + "<\/th> \r\n ";}
+         "<th>" + String(score) + "<\/th> \r\n "; +
+	 "<th>" + String(date) + "<\/th> \r\n ";}
           
          
          });		//don't forget these!! 
@@ -143,9 +147,11 @@
          
          
          function check(){
-         if(!found){database.ref("/User").push({
+         if(!found){
+	database.ref("/User").push({
              name: Player,
              score: "0",
+	     date : document.getElementById("dateTextbox").value,
          });
          var textbox = document.getElementById("nameTextbox");
          if (textbox!=null){document.getElementById("nameTextbox").remove();document.getElementById("submitName").remove();}
@@ -166,6 +172,7 @@
          <div id="message"></div>
          <input type="text" id="nameTextbox" placeholder = "name" style="font-size: 15px;"><br/>
          <input type="text" id="scoreTextbox" placeholder="score" style="font-size: 15px;"><br/>
+	<input type="text" id="dateTextbox" placeholder="score" style="font-size: 15px;"><br/>
          <button id="submitName" onclick = "Sign_up(), reload_content(), clear_textbox()" style="font-size: 20px;">Submit name</button>
          <button onclick = "push(), reload_content(), clear_textbox()" style="font-size: 20px;">Submit score</button>
          <button onclick = "reload_content() "style="font-size: 20px;" >get_all</button>
