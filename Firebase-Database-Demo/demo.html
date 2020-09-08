@@ -121,7 +121,7 @@ Let's test out the database! <br/>
 <textarea name="paragraph_text" cols="40" placeholder = "Comments" rows="5" id="textfeild" style="background: rgba(204, 204, 204, .1); color:#000000; border:rgba(204, 204, 204, .8); font-size: 15px;  "></textarea>
 <button onclick = "push(), reload_content(), clear_textbox()" style="font-size: 20px;">Submit</button>
 <button onclick = "reload_content(), goto('#link') "style="font-size: 20px;" >get_all</button>
-<button onclick = "clearData(), reload_content(), clear_textbox(); goto('#begining')" style="font-size: 20px;">Clear</button>
+<button id="clear" onclick = "clearData(), reload_content(), clear_textbox(); goto('#begining')" style="font-size: 20px;">Clear</button>
 </div>
 <!--Clear the textboxes on loading the page -->
 <script> 
